@@ -1,0 +1,16 @@
+*********** Parameters ***********
+no_of_company=3
+working_date=2023-08-08
+time_shift=120
+bank_buffer_value=0.4
+nifty_buffer_value=8
+rolling_trend=40
+trend_count_buffer=15
+nifty_profit_loss_change=40
+*********** Parameters ***********
+Profit Occured for order BUY_CE for NIFTY 44978.6 at time 2023-08-08 13:13:38, at 2023-08-08 13:20:28
+Loss Occured for order BUY_CE for NIFTY 45005.2 at time 2023-08-08 13:35:46, at 2023-08-08 13:38:39
+Loss Occured for order BUY_PE for NIFTY 44955.1 at time 2023-08-08 14:16:30, at 2023-08-08 14:24:14
+Loss Occured for order BUY_PE for NIFTY 44952.9 at time 2023-08-08 14:16:32, at 2023-08-08 14:24:14
+Profit Percentage : 25.0
+Loss Percentage : 75.0

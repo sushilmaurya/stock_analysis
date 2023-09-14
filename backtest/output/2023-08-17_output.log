@@ -1,0 +1,10 @@
+*********** Parameters ***********
+no_of_company=6
+working_date=2023-08-17
+time_shift=60
+bank_buffer_value=0.02
+nifty_buffer_value=0.04
+rolling_trend=40
+trend_count_buffer=25
+nifty_profit_loss_change=50
+*********** Parameters ***********

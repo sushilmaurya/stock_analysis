@@ -1,0 +1,13 @@
+*********** Parameters ***********
+no_of_company=3
+working_date=2023-08-04
+time_shift=120
+bank_buffer_value=0.4
+nifty_buffer_value=8
+rolling_trend=40
+trend_count_buffer=15
+nifty_profit_loss_change=40
+*********** Parameters ***********
+Loss Occured for order BUY_CE for NIFTY 44907.4 at time 2023-08-04 14:50:31, at 2023-08-04 14:51:17
+Profit Percentage : 0.0
+Loss Percentage : 100.0
