@@ -4,9 +4,9 @@ import pandas as pd
 def nifty_trend(current,max_value,min_value):
 
     global nifty_buffer_value
-    if(current < (min_value - nifty_buffer_value) ):
+    if(current < min_value * (1 - nifty_buffer_value) ):
         return "DOWNWARD"
-    elif(current > (max_value + nifty_buffer_value) ):
+    elif(current > max_value * (1 + nifty_buffer_value) ):
         return "UPWARD"
     else:
         return "NEUTRAL"
@@ -14,9 +14,9 @@ def nifty_trend(current,max_value,min_value):
 def bank_trend(current,max_value,min_value):
 
     global bank_buffer_value
-    if(current < (min_value - bank_buffer_value) ):
+    if(current < min_value * (1 - bank_buffer_value) ):
         return "DOWNWARD"
-    elif(current > (max_value + bank_buffer_value) ):
+    elif(current > max_value * (1 + bank_buffer_value) ):
         return "UPWARD"
     else:
         return "NEUTRAL"
@@ -27,38 +27,32 @@ def condition_func(value_1,value_2):
     #print("Bank NIFTY Change : " + str(bnifty_change))
     return bnifty_change
     
-
+# Define a custom function to categorize scores
+def categorize_diff(diff):
+    if diff > 0:
+        return 1
+    elif diff < 0:
+        return -1
+    else:
+        return 0
+    
 # 01 - Define Parameters    
 #### Variables #####
-<<<<<<< HEAD
 no_of_company = 6 # Including NIFTY
-working_date = '2023-08-17'
+working_date = '2023-08-07'
 time_shift=60 # In seconds
-bank_buffer_value = 0.02 #Percentage 
-nifty_buffer_value = 0.04 #Percentage
+bank_buffer_value = 0.02/100 #Percentage 
+nifty_buffer_value = 0.08/100 #Percentage
 rolling_trend = 40   # 40*3 = 120 [ In Production code we are counting 1 for each]
+rolling_rsi=50
 trend_count_buffer = 25
 nifty_profit_loss_change = 50
-=======
-no_of_company = 3 # Including NIFTY
-working_date = '2023-08-17'
-time_shift=120 # In seconds
-bank_buffer_value = 0.40
-nifty_buffer_value = 8
-rolling_trend = 40   # 40*3 = 120 [ In Production code we are counting 1 for each]
-trend_count_buffer = 25
-nifty_profit_loss_change = 40
->>>>>>> 1038f96584ff512aee05eac73c4b6d19c8ddb834
 file_path = "../output/" + working_date + "_output.log"
 #### Variables #####
 
 # 02 - Read the data in Raw Dataframe    
-<<<<<<< HEAD
 #raw_df = pd.read_csv(f"D:\\06.STOCK Project\\01_220_STRATEGY\\backtest\\data\\raw_data_{working_date}.csv")
 raw_df = pd.read_csv(f"..\\data\\raw_data_{working_date}.csv")
-=======
-raw_df = pd.read_csv(f"D:\\06.STOCK Project\\01_220_STRATEGY\\backtest\\data\\raw_data_{working_date}.csv")
->>>>>>> 1038f96584ff512aee05eac73c4b6d19c8ddb834
 #print(raw_df)
 
 # 03 - Select columns to filter    
@@ -93,13 +87,9 @@ print(df)
 nifty_data = df[df["company_code"]=='NIFTY BANK']
 hdfc_data = df[df["company_code"]=='HDFCBANK']
 icici_data = df[df["company_code"]=='ICICIBANK']
-<<<<<<< HEAD
 axis_data = df[df["company_code"]=='AXISBANK']
 kotak_data = df[df["company_code"]=='KOTAKBANK']
 sbi_data = df[df["company_code"]=='SBIN']
-=======
-##axis_data = df[df["company_code"]=='AXISBANK']
->>>>>>> 1038f96584ff512aee05eac73c4b6d19c8ddb834
 
 # 05 - Merging HDFC BANK
 merged_df = pd.merge(nifty_data, hdfc_data, on='c_count', how='inner')
@@ -114,7 +104,6 @@ new_columns = ['timestamp_x','d_date_x','t_time_x','c_count','nifty_current','hd
 merged_df = merged_df [new_columns]
 
 # 07 - Merging AXIS BANK
-<<<<<<< HEAD
 merged_df = pd.merge(merged_df, axis_data, on='c_count', how='inner')
 merged_df.rename(columns={'current': 'axis_current'}, inplace=True)
 new_columns = ['timestamp_x','d_date_x','t_time_x','c_count','nifty_current','hdfc_current','icici_current','axis_current']
@@ -133,12 +122,6 @@ new_columns = ['timestamp_x','d_date_x','t_time_x','c_count','nifty_current','hd
 merged_df = merged_df [new_columns]
 
 
-=======
-##merged_df = pd.merge(merged_df, axis_data, on='c_count', how='inner')
-##merged_df.rename(columns={'current': 'axis_current'}, inplace=True)
-##new_columns = ['timestamp_x','d_date_x','t_time_x','c_count','nifty_current','hdfc_current','icici_current','axis_current']
-##merged_df = merged_df [new_columns]
->>>>>>> 1038f96584ff512aee05eac73c4b6d19c8ddb834
 
 # 08 - Sorting Final Dataframe in Ascending Order
 merged_df = merged_df.sort_values(by='c_count', ascending=True)
@@ -157,7 +140,6 @@ result = min_max_df.groupby('t_time_strip').agg(min_nifty_current=pd.NamedAgg(co
                                       min_hdfc_current=pd.NamedAgg(column='hdfc_current', aggfunc='min'),
                                       max_hdfc_current=pd.NamedAgg(column='hdfc_current', aggfunc='max'),
                                       min_icici_current=pd.NamedAgg(column='icici_current', aggfunc='min'),
-<<<<<<< HEAD
                                       max_icici_current=pd.NamedAgg(column='icici_current', aggfunc='max'),
                                       min_axis_current=pd.NamedAgg(column='axis_current', aggfunc='min'),
                                       max_axis_current=pd.NamedAgg(column='axis_current', aggfunc='max'),
@@ -165,9 +147,6 @@ result = min_max_df.groupby('t_time_strip').agg(min_nifty_current=pd.NamedAgg(co
                                       max_kotak_current=pd.NamedAgg(column='kotak_current', aggfunc='max'),
                                       min_sbi_current=pd.NamedAgg(column='sbi_current', aggfunc='min'),
                                       max_sbi_current=pd.NamedAgg(column='sbi_current', aggfunc='max')
-=======
-                                      max_icici_current=pd.NamedAgg(column='icici_current', aggfunc='max')
->>>>>>> 1038f96584ff512aee05eac73c4b6d19c8ddb834
                                       )
 
 # 11 - Joining Min Max Columns with previous candle min-max
@@ -179,13 +158,9 @@ final_df = final_df.drop(columns=['t_time_strip'])
 final_df['nifty_trend'] = final_df.apply(lambda row: nifty_trend(row['nifty_current'], row['max_nifty_current'], row['min_nifty_current']), axis=1)
 final_df['hdfc_trend'] = final_df.apply(lambda row: bank_trend(row['hdfc_current'], row['max_hdfc_current'], row['min_hdfc_current']), axis=1)
 final_df['icici_trend'] = final_df.apply(lambda row: bank_trend(row['icici_current'], row['max_icici_current'], row['min_icici_current']), axis=1)
-<<<<<<< HEAD
 final_df['axis_trend'] = final_df.apply(lambda row: bank_trend(row['axis_current'], row['max_axis_current'], row['min_axis_current']), axis=1)
 final_df['kotak_trend'] = final_df.apply(lambda row: bank_trend(row['kotak_current'], row['max_kotak_current'], row['min_kotak_current']), axis=1)
 final_df['sbi_trend'] = final_df.apply(lambda row: bank_trend(row['sbi_current'], row['max_sbi_current'], row['min_sbi_current']), axis=1)
-=======
-
->>>>>>> 1038f96584ff512aee05eac73c4b6d19c8ddb834
 
 # 13 - Counting the Occurenece of Neutral only
 # Values to count occurrences for
@@ -203,22 +178,29 @@ final_df['neutral_count'] = final_df.apply(count_occurrences, axis=1)
 # Calculate the rolling neutral count sum using .rolling() and .sum()
 final_df['rolling_neutral_count'] = final_df['neutral_count'].rolling(rolling_trend).sum()
 
+# Additional Code - Enhancement - revision 1
+# Computing RSI at the moment based on previous n values
+final_df['nifty_current_diff'] = final_df['nifty_current'].diff()
+final_df['up_down'] = final_df['nifty_current_diff'].apply(categorize_diff)
+
+# Calculate the rolling sum and store it in a new column
+final_df['rolling_sum'] = final_df['up_down'].rolling(window=rolling_rsi).sum()
+final_df['rsi'] = final_df['rolling_sum']/rolling_rsi*100
 
 # 15 - Define PE and CE Order for the point in time values
 # Check for PE and CE orders
 # Define the conditions and populate 'new_column' with custom values
 threshold_for_trend = no_of_company*rolling_trend - trend_count_buffer
-<<<<<<< HEAD
-final_df.loc[(final_df['rolling_neutral_count'] > threshold_for_trend ) & (final_df['nifty_trend'] == "UPWARD") & (final_df['hdfc_trend'] == "UPWARD") & (final_df['icici_trend'] == "UPWARD") & (final_df['axis_trend'] == "UPWARD") & (final_df['kotak_trend'] == "UPWARD") & (final_df['sbi_trend'] == "UPWARD") , 'order'] = 'BUY_CE'
-final_df.loc[(final_df['rolling_neutral_count'] > threshold_for_trend ) & (final_df['nifty_trend'] == "DOWNWARD") & (final_df['hdfc_trend'] == "DOWNWARD") & (final_df['icici_trend'] == "DOWNWARD") & (final_df['axis_trend'] == "DOWNWARD") & (final_df['kotak_trend'] == "DOWNWARD") & (final_df['sbi_trend'] == "DOWNWARD") , 'order'] = 'BUY_PE'
-
+#final_df.loc[(final_df['rolling_neutral_count'] > threshold_for_trend ) & (final_df['nifty_trend'] == "UPWARD") & (final_df['hdfc_trend'] == "UPWARD") & (final_df['icici_trend'] == "UPWARD") & (final_df['axis_trend'] == "UPWARD") & (final_df['kotak_trend'] == "UPWARD") & (final_df['sbi_trend'] == "UPWARD") , 'order'] = 'BUY_CE'
 #final_df.loc[(final_df['rolling_neutral_count'] > threshold_for_trend ) & (final_df['nifty_trend'] == "DOWNWARD") & (final_df['hdfc_trend'] == "DOWNWARD") & (final_df['icici_trend'] == "DOWNWARD") & (final_df['axis_trend'] == "DOWNWARD") & (final_df['kotak_trend'] == "DOWNWARD") & (final_df['sbi_trend'] == "DOWNWARD") , 'order'] = 'BUY_PE'
-=======
-final_df.loc[(final_df['rolling_neutral_count'] > threshold_for_trend   ) & (final_df['nifty_trend'] == "UPWARD") & (final_df['hdfc_trend'] == "UPWARD") & (final_df['icici_trend'] == "UPWARD"), 'order'] = 'BUY_CE'
-final_df.loc[(final_df['rolling_neutral_count'] > threshold_for_trend) & (final_df['nifty_trend'] == "DOWNWARD") & (final_df['hdfc_trend'] == "DOWNWARD") & (final_df['icici_trend'] == "DOWNWARD"), 'order'] = 'BUY_PE'
 
-final_df.loc[(final_df['rolling_neutral_count'] > threshold_for_trend) & (final_df['nifty_trend'] == "DOWNWARD") & (final_df['hdfc_trend'] == "DOWNWARD") & (final_df['icici_trend'] == "DOWNWARD"), 'order'] = 'BUY_PE'
->>>>>>> 1038f96584ff512aee05eac73c4b6d19c8ddb834
+# Code Update - Neutral count is not needed, instead will be replaced by RSI later
+# With RSI
+final_df.loc[ (final_df['rsi'] > 15 ) & (final_df['rsi'] < 25 ) & (final_df['nifty_trend'] == "UPWARD") & (final_df['hdfc_trend'] == "UPWARD") & (final_df['icici_trend'] == "UPWARD") & (final_df['axis_trend'] == "UPWARD") & (final_df['kotak_trend'] == "UPWARD") & (final_df['sbi_trend'] == "UPWARD") , 'order'] = 'BUY_CE'
+final_df.loc[ (final_df['rsi'] < -15 ) & (final_df['rsi'] > -25 ) & (final_df['nifty_trend'] == "DOWNWARD") & (final_df['hdfc_trend'] == "DOWNWARD") & (final_df['icici_trend'] == "DOWNWARD") & (final_df['axis_trend'] == "DOWNWARD") & (final_df['kotak_trend'] == "DOWNWARD") & (final_df['sbi_trend'] == "DOWNWARD") , 'order'] = 'BUY_PE'
+# Without RSI
+#final_df.loc[ (final_df['nifty_trend'] == "UPWARD") & (final_df['hdfc_trend'] == "UPWARD") & (final_df['icici_trend'] == "UPWARD") & (final_df['axis_trend'] == "UPWARD") & (final_df['kotak_trend'] == "UPWARD") & (final_df['sbi_trend'] == "UPWARD") , 'order'] = 'BUY_CE'
+#final_df.loc[ (final_df['nifty_trend'] == "DOWNWARD") & (final_df['hdfc_trend'] == "DOWNWARD") & (final_df['icici_trend'] == "DOWNWARD") & (final_df['axis_trend'] == "DOWNWARD") & (final_df['kotak_trend'] == "DOWNWARD") & (final_df['sbi_trend'] == "DOWNWARD") , 'order'] = 'BUY_PE'
 
 # 15 - Generate final order table
 # Check the 'column_name' for non-NaN values with boolean series
@@ -248,7 +230,8 @@ for start_index in index_list:
             # Perform your desired action here
             condition_time = final_df.loc[start_index,'timestamp_x']
             end_time = final_df.loc[index,'timestamp_x']
-            output_log = f"Profit Occured for order {order_type} for NIFTY {value_1} at time {condition_time}, at {end_time}\n"
+            rsi = final_df.loc[start_index,'rsi']
+            output_log = f"Profit Occured for RSI = {rsi} order {order_type} for NIFTY {value_1} at time {condition_time}, at {end_time}\n"
             profit_count=profit_count+1
             print(output_log)
             with open(file_path, 'a+') as file:
@@ -259,7 +242,8 @@ for start_index in index_list:
             # Perform your desired action here
             condition_time = final_df.loc[start_index,'timestamp_x']
             end_time = final_df.loc[index,'timestamp_x']
-            output_log=f"Profit Occured for order {order_type} for NIFTY {value_1} at time {condition_time}, at {end_time}\n"
+            rsi = final_df.loc[start_index,'rsi']
+            output_log=f"Profit Occured for RSI = {rsi} order {order_type} for NIFTY {value_1} at time {condition_time}, at {end_time}\n"
             profit_count=profit_count+1
             print(output_log)
             with open(file_path, 'a+') as file:
@@ -270,7 +254,8 @@ for start_index in index_list:
             # Perform your desired action here
             condition_time = final_df.loc[start_index,'timestamp_x']
             end_time = final_df.loc[index,'timestamp_x']
-            output_log=f"Loss Occured for order {order_type} for NIFTY {value_1} at time {condition_time}, at {end_time}\n"
+            rsi = final_df.loc[start_index,'rsi']
+            output_log=f"Loss Occured for RSI = {rsi} order {order_type} for NIFTY {value_1} at time {condition_time}, at {end_time}\n"
             loss_count=loss_count+1
             print(output_log)
             with open(file_path, 'a+') as file:
@@ -281,7 +266,8 @@ for start_index in index_list:
             # Perform your desired action here
             condition_time = final_df.loc[start_index,'timestamp_x']
             end_time = final_df.loc[index,'timestamp_x']
-            output_log=f"Loss Occured for order {order_type} for NIFTY {value_1} at time {condition_time}, at {end_time}\n"
+            rsi = final_df.loc[start_index,'rsi']
+            output_log=f"Loss Occured for RSI = {rsi} order {order_type} for NIFTY {value_1} at time {condition_time}, at {end_time}\n"
             loss_count=loss_count+1
             print(output_log)
             with open(file_path, 'a+') as file:

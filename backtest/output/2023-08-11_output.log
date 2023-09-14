@@ -1,16 +1,17 @@
 *********** Parameters ***********
-no_of_company=3
+no_of_company=6
 working_date=2023-08-11
-time_shift=120
-bank_buffer_value=0.4
-nifty_buffer_value=5
+time_shift=60
+bank_buffer_value=0.0002
+nifty_buffer_value=0.0008
 rolling_trend=40
-trend_count_buffer=15
-nifty_profit_loss_change=40
+trend_count_buffer=25
+nifty_profit_loss_change=50
 *********** Parameters ***********
-Profit Occured for order BUY_PE for NIFTY 44345.9 at time 2023-08-11 12:42:43, at 2023-08-11 12:53:48
-Loss Occured for order BUY_CE for NIFTY 44429.1 at time 2023-08-11 13:06:52, at 2023-08-11 13:11:28
-Loss Occured for order BUY_CE for NIFTY 44381.0 at time 2023-08-11 13:29:03, at 2023-08-11 13:38:30
-Profit Occured for order BUY_PE for NIFTY 44311.8 at time 2023-08-11 14:00:48, at 2023-08-11 14:40:08
-Profit Percentage : 50.0
-Loss Percentage : 50.0
+Profit Occured for RSI = 22.0 order BUY_CE for NIFTY 44332.3 at time 2023-08-11 13:02:35, at 2023-08-11 13:02:53
+Profit Occured for RSI = -20.0 order BUY_PE for NIFTY 44220.8 at time 2023-08-11 15:00:46, at 2023-08-11 15:03:30
+Profit Occured for RSI = -20.0 order BUY_PE for NIFTY 44207.6 at time 2023-08-11 15:00:50, at 2023-08-11 15:03:46
+Profit Occured for RSI = -20.0 order BUY_PE for NIFTY 44184.2 at time 2023-08-11 15:00:54, at 2023-08-11 15:08:39
+Profit Occured for RSI = -16.0 order BUY_PE for NIFTY 44194.1 at time 2023-08-11 15:00:57, at 2023-08-11 15:08:32
+Profit Percentage : 100.0
+Loss Percentage : 0.0

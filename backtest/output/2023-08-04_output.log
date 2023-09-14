@@ -1,13 +1,25 @@
 *********** Parameters ***********
-no_of_company=3
+no_of_company=6
 working_date=2023-08-04
-time_shift=120
-bank_buffer_value=0.4
-nifty_buffer_value=8
+time_shift=60
+bank_buffer_value=0.0002
+nifty_buffer_value=0.0004
 rolling_trend=40
-trend_count_buffer=15
-nifty_profit_loss_change=40
+trend_count_buffer=25
+nifty_profit_loss_change=50
 *********** Parameters ***********
-Loss Occured for order BUY_CE for NIFTY 44907.4 at time 2023-08-04 14:50:31, at 2023-08-04 14:51:17
-Profit Percentage : 0.0
-Loss Percentage : 100.0
+Profit Occured for RSI = -16.0 order BUY_PE for NIFTY 45010.1 at time 2023-08-04 12:30:38, at 2023-08-04 12:34:04
+Profit Occured for RSI = -16.0 order BUY_PE for NIFTY 45001.9 at time 2023-08-04 12:30:43, at 2023-08-04 12:34:09
+Profit Occured for RSI = -20.0 order BUY_PE for NIFTY 44992.6 at time 2023-08-04 12:30:49, at 2023-08-04 12:34:47
+Profit Occured for RSI = -20.0 order BUY_PE for NIFTY 44992.3 at time 2023-08-04 12:30:54, at 2023-08-04 12:34:47
+Profit Occured for RSI = 20.0 order BUY_CE for NIFTY 44957.6 at time 2023-08-04 12:42:48, at 2023-08-04 12:45:21
+Profit Occured for RSI = 24.0 order BUY_CE for NIFTY 44959.4 at time 2023-08-04 12:42:53, at 2023-08-04 12:45:21
+Profit Occured for RSI = 20.0 order BUY_CE for NIFTY 44957.4 at time 2023-08-04 12:42:58, at 2023-08-04 12:45:21
+Profit Occured for RSI = -16.0 order BUY_PE for NIFTY 44743.2 at time 2023-08-04 13:31:49, at 2023-08-04 13:34:18
+Profit Occured for RSI = -20.0 order BUY_PE for NIFTY 44741.8 at time 2023-08-04 13:31:56, at 2023-08-04 13:34:18
+Loss Occured for RSI = -18.0 order BUY_PE for NIFTY 44790.6 at time 2023-08-04 15:04:08, at 2023-08-04 15:05:30
+Loss Occured for RSI = -18.0 order BUY_PE for NIFTY 44800.4 at time 2023-08-04 15:04:12, at 2023-08-04 15:05:33
+Loss Occured for RSI = 16.0 order BUY_CE for NIFTY 44940.6 at time 2023-08-04 15:11:52, at 2023-08-04 15:16:58
+Loss Occured for RSI = 16.0 order BUY_CE for NIFTY 44938.4 at time 2023-08-04 15:11:58, at 2023-08-04 15:17:05
+Profit Percentage : 69.23
+Loss Percentage : 30.77

@@ -1,17 +1,28 @@
 *********** Parameters ***********
-no_of_company=3
+no_of_company=6
 working_date=2023-08-03
-time_shift=120
-bank_buffer_value=0.4
-nifty_buffer_value=8
+time_shift=60
+bank_buffer_value=0.0002
+nifty_buffer_value=0.0004
 rolling_trend=40
-trend_count_buffer=15
-nifty_profit_loss_change=40
+trend_count_buffer=25
+nifty_profit_loss_change=50
 *********** Parameters ***********
-Profit Occured for order BUY_PE for NIFTY 44394.8 at time 2023-08-03 14:48:05, at 2023-08-03 14:53:58
-Profit Occured for order BUY_PE for NIFTY 44393.9 at time 2023-08-03 14:48:07, at 2023-08-03 14:54:01
-Profit Occured for order BUY_PE for NIFTY 44394.5 at time 2023-08-03 14:48:10, at 2023-08-03 14:53:58
-Profit Occured for order BUY_PE for NIFTY 44395.2 at time 2023-08-03 14:48:14, at 2023-08-03 14:53:58
-Loss Occured for order BUY_PE for NIFTY 44345.9 at time 2023-08-03 14:54:13, at 2023-08-03 14:54:53
-Loss Occured for order BUY_PE for NIFTY 44345.9 at time 2023-08-03 14:54:13, at 2023-08-03 14:54:53
-
+Loss Occured for RSI = 18.0 order BUY_CE for NIFTY 44442.2 at time 2023-08-03 14:01:12, at 2023-08-03 14:03:46
+Loss Occured for RSI = 18.0 order BUY_CE for NIFTY 44447.4 at time 2023-08-03 14:01:15, at 2023-08-03 14:03:43
+Loss Occured for RSI = 18.0 order BUY_CE for NIFTY 44441.2 at time 2023-08-03 14:01:18, at 2023-08-03 14:03:46
+Loss Occured for RSI = 18.0 order BUY_CE for NIFTY 44440.9 at time 2023-08-03 14:01:30, at 2023-08-03 14:03:46
+Loss Occured for RSI = -20.0 order BUY_PE for NIFTY 44324.3 at time 2023-08-03 14:06:23, at 2023-08-03 14:08:27
+Loss Occured for RSI = -20.0 order BUY_PE for NIFTY 44325.8 at time 2023-08-03 14:06:29, at 2023-08-03 14:08:27
+Loss Occured for RSI = -24.0 order BUY_PE for NIFTY 44317.5 at time 2023-08-03 14:06:33, at 2023-08-03 14:07:56
+Loss Occured for RSI = -20.0 order BUY_PE for NIFTY 44323.5 at time 2023-08-03 14:06:36, at 2023-08-03 14:08:27
+Loss Occured for RSI = -24.0 order BUY_PE for NIFTY 44313.8 at time 2023-08-03 14:06:38, at 2023-08-03 14:07:56
+Loss Occured for RSI = -20.0 order BUY_PE for NIFTY 44315.4 at time 2023-08-03 14:06:40, at 2023-08-03 14:07:56
+Loss Occured for RSI = -20.0 order BUY_PE for NIFTY 44316.4 at time 2023-08-03 14:06:44, at 2023-08-03 14:07:56
+Loss Occured for RSI = -20.0 order BUY_PE for NIFTY 44311.6 at time 2023-08-03 14:06:47, at 2023-08-03 14:07:56
+Loss Occured for RSI = -18.0 order BUY_PE for NIFTY 44323.6 at time 2023-08-03 14:06:53, at 2023-08-03 14:08:27
+Loss Occured for RSI = -20.0 order BUY_PE for NIFTY 44407.5 at time 2023-08-03 14:44:55, at 2023-08-03 14:46:05
+Loss Occured for RSI = -18.0 order BUY_PE for NIFTY 44414.5 at time 2023-08-03 15:07:47, at 2023-08-03 15:10:07
+Profit Occured for RSI = 24.0 order BUY_CE for NIFTY 44545.1 at time 2023-08-03 15:14:57, at 2023-08-03 15:15:46
+Profit Percentage : 6.25
+Loss Percentage : 93.75

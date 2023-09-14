@@ -1,16 +1,22 @@
 *********** Parameters ***********
-no_of_company=3
+no_of_company=6
 working_date=2023-08-10
-time_shift=120
-bank_buffer_value=0.4
-nifty_buffer_value=5
+time_shift=60
+bank_buffer_value=0.0002
+nifty_buffer_value=0.0008
 rolling_trend=40
-trend_count_buffer=15
-nifty_profit_loss_change=40
+trend_count_buffer=25
+nifty_profit_loss_change=50
 *********** Parameters ***********
-Loss Occured for order BUY_PE for NIFTY 44695.5 at time 2023-08-10 09:30:31, at 2023-08-10 09:33:47
-Profit Occured for order BUY_PE for NIFTY 44657.7 at time 2023-08-10 12:11:02, at 2023-08-10 12:13:46
-Profit Occured for order BUY_PE for NIFTY 44520.7 at time 2023-08-10 13:51:03, at 2023-08-10 13:53:20
-Loss Occured for order BUY_PE for NIFTY 44521.2 at time 2023-08-10 15:18:51, at 2023-08-10 15:26:21
-Profit Percentage : 50.0
-Loss Percentage : 50.0
+Profit Occured for RSI = 18.0 order BUY_CE for NIFTY 44748.2 at time 2023-08-10 09:33:52, at 2023-08-10 09:34:54
+Loss Occured for RSI = 18.0 order BUY_CE for NIFTY 44772.9 at time 2023-08-10 09:33:57, at 2023-08-10 09:54:03
+Profit Occured for RSI = -18.0 order BUY_PE for NIFTY 44574.9 at time 2023-08-10 10:30:44, at 2023-08-10 10:35:13
+Profit Occured for RSI = -22.0 order BUY_PE for NIFTY 44559.4 at time 2023-08-10 10:30:51, at 2023-08-10 10:35:20
+Profit Occured for RSI = -22.0 order BUY_PE for NIFTY 44554.6 at time 2023-08-10 10:30:58, at 2023-08-10 10:35:27
+Profit Occured for RSI = 24.0 order BUY_CE for NIFTY 44565.5 at time 2023-08-10 10:46:55, at 2023-08-10 10:53:07
+Profit Occured for RSI = -20.0 order BUY_PE for NIFTY 44565.7 at time 2023-08-10 13:24:30, at 2023-08-10 13:26:31
+Profit Occured for RSI = -20.0 order BUY_PE for NIFTY 44565.8 at time 2023-08-10 13:24:37, at 2023-08-10 13:26:31
+Profit Occured for RSI = -24.0 order BUY_PE for NIFTY 44564.4 at time 2023-08-10 13:24:44, at 2023-08-10 13:28:18
+Profit Occured for RSI = -20.0 order BUY_PE for NIFTY 44567.6 at time 2023-08-10 13:24:51, at 2023-08-10 13:26:24
+Profit Percentage : 90.0
+Loss Percentage : 10.0

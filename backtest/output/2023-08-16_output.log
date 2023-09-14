@@ -1,22 +1,13 @@
 *********** Parameters ***********
-no_of_company=3
+no_of_company=6
 working_date=2023-08-16
-time_shift=120
-bank_buffer_value=0.4
-nifty_buffer_value=8
+time_shift=60
+bank_buffer_value=0.0002
+nifty_buffer_value=0.0008
 rolling_trend=40
-trend_count_buffer=15
-nifty_profit_loss_change=40
+trend_count_buffer=25
+nifty_profit_loss_change=50
 *********** Parameters ***********
-Profit Occured for order BUY_CE for NIFTY 43800.5 at time 2023-08-16 09:52:20, at 2023-08-16 09:57:46
-Profit Occured for order BUY_CE for NIFTY 43816.2 at time 2023-08-16 10:04:22, at 2023-08-16 10:16:59
-Profit Occured for order BUY_CE for NIFTY 43816.1 at time 2023-08-16 10:04:31, at 2023-08-16 10:16:59
-Profit Occured for order BUY_PE for NIFTY 43864.8 at time 2023-08-16 10:22:05, at 2023-08-16 10:34:53
-Profit Occured for order BUY_PE for NIFTY 43865.4 at time 2023-08-16 10:22:07, at 2023-08-16 10:34:53
-Profit Occured for order BUY_CE for NIFTY 43834.8 at time 2023-08-16 12:28:08, at 2023-08-16 12:36:47
-Profit Occured for order BUY_CE for NIFTY 43835.9 at time 2023-08-16 12:28:11, at 2023-08-16 12:36:47
-Profit Occured for order BUY_CE for NIFTY 43919.6 at time 2023-08-16 13:18:30, at 2023-08-16 13:19:49
-Profit Occured for order BUY_CE for NIFTY 43920.7 at time 2023-08-16 13:18:32, at 2023-08-16 13:20:25
-Profit Occured for order BUY_CE for NIFTY 43923.1 at time 2023-08-16 13:18:34, at 2023-08-16 13:20:30
+Profit Occured for RSI = 16.0 order BUY_CE for NIFTY 43928.6 at time 2023-08-16 15:00:59, at 2023-08-16 15:04:47
 Profit Percentage : 100.0
 Loss Percentage : 0.0
